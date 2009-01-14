@@ -25,7 +25,7 @@ module Prawn
         if height && block
           raise ArgumentError, "cannot specify both height and a block"
         elsif height
-          block = Proc.new { |l, h| h > height }
+          block = Proc.new { |l, h| h > height && height != 0 }
         elsif block.nil?
           block = Proc.new { |l, h| false }
         end
